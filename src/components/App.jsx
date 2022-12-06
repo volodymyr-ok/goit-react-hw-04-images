@@ -28,6 +28,7 @@ export const App = () => {
         alert(e.message);
         setStatus('rejected');
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entrie, page]);
 
   const handleSearchbarSubmit = entrie => {
