@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export const Modal = ({ largeImageURL, alt, closeModal }) => {
-  document.addEventListener('keydown', closeModal);
+  useEffect(() => {
+    document.addEventListener('keydown', closeModal);
+
+    return () => document.removeEventListener('keydown', closeModal);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="Overlay" onClick={evt => closeModal(evt)}>
